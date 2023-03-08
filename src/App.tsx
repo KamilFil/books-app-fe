@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
+import {HomePageViews} from "./views/HomePageViews/HomePageViews";
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
+      <HomePageViews></HomePageViews>
     </div>
   );
 }

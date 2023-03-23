@@ -1,4 +1,9 @@
 import './HomePageViews.css'
+import {Menu} from "../../common/Menu/Menu";
+import { Link } from 'react-router-dom';
+import {Footer} from "../../common/Footer/Footer";
+import React from "react";
+import {BooksSection} from "../../common/Books/BooksSection";
 
 export const HomePageViews = () => {
 
@@ -8,128 +13,40 @@ export const HomePageViews = () => {
         description: "dwadawdaw dawdwadawdaw wadwad wadwd awdawdwada"
     }
 
+
+
     return (
-        <>
+        <>   <Menu></Menu>
             <header>
-                <nav>
-                    <ul>
-                        <li>
-                            <a>Link</a>
-                        </li>
-                    </ul>
-                </nav>
-                <h1>Twoja księgarnia online</h1>
-            </header>
-            <section className="books">
-                <h2 className="books-title">Kategoria</h2>
-                <div className="books-section">
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
+                <div className="container">
+
+                    <div className="head-info">
+                        <h1>Twoja księgarnia online</h1>
+                        <p>Twoje najlepsze kolekcje ksiązek</p>
+                        <Link to="/blog" className="head-info_link">Blog</Link>
                     </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
+                    <div className="favorite-books">
+                        <div className="favorite-books-item ">
+                            <img src="img/testb.jpg" alt="alternatywny tekst"/>
+                            <p>Zjedz tę żabę</p>
+                            <Link to="/blog" className="btn small">Zobacz</Link>
                         </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
+                        <div className="favorite-books-item active">
+                            <img src="img/testa.jpg" alt="alternatywny tekst"/>
+                            <p>Ilustrowany przewodnik o algorymtach</p>
+                            <Link to="/blog" className="btn small">Zobacz</Link>
                         </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="books">
-                <h2 className="books-title">Kategoria</h2>
-                <div className="books-section">
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title" title="tytuł ksiązki">Książka o Kamilu Filipe, który był..</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="books">
-                <h2 className="books-title">Kategoria</h2>
-                <div className="books-section">
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                    <div className="books-item">
-                        <img src="img/book.jpg" alt="alternatywny tekst"/>
-                        <div className="books-item_info">
-                            <a href="/" className="books-item_title">title</a>
-                            <p className="books-item_desc">description</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer>
-                <div className="footer-column">
-                    <div className="footer-item">
-                        <p>
-                            Opis strony
-                        </p>
+                        <div className="favorite-books-item">
+                            <img src="img/testb.jpg" alt="alternatywny tekst"/>
+                            <p>Zjedz tę żabę</p>
+                            <Link to="/blog" className="btn small">Zobacz</Link>
+                         </div>
                     </div>
 
                 </div>
-                <p className="footerm-copy"> Strona stworzona na potrzeby portfolio</p>
-            </footer>
-        </>
+            </header>
+            <BooksSection/>
+            <Footer></Footer>
+            </>
     )
 }

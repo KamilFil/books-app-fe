@@ -1,23 +1,76 @@
 
 header {
-    background: lightblue;
-    height: 300px;
+    height: 400px;
+    box-shadow: 0 0 4px 1px #ddd;
 }
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container div {
+    width: 50%;
+}
+.head-info *{
+margin-top: 12px;
+}
+
+.btn.small {
+    display: inline-block;
+    text-decoration: none;
+    background: darkcyan;
+    color: white;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.head-info_link {
+    display: inline-block;
+    text-decoration: none;
+    background: darkcyan;
+    color: white;
+    padding: 8px 26px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+}
+
+
+
 .books {
     padding: 60px;
+}
+
+.books:nth-last-child(odd) {
+    box-shadow: 0 0 3px 3px #ddd;
+
 }
 
 .books h2{
     text-align: center;
 }
 
+.books:nth-child(odd) h2 {
+    color: white;
+}
+
 .books:nth-child(odd) {
-    background: #e3e8e8;
+    background: rgba(0, 139, 139, 0.7);
+
 }
 
 .books-section {
     display: flex;
-    width: 70%;
+    max-width: 1280px;
     padding: 40px 0;
     margin: 0 auto;
     justify-content: space-between;
@@ -27,7 +80,7 @@ header {
     background: #fff;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 0px 3px 2px #ddd;
+    box-shadow: 0 0 3px 2px #ddd;
     padding: 30px 20px;
     border-radius: 8px;
     width: 20%;
@@ -40,14 +93,50 @@ header {
 .books-item img {
     margin: 0 auto;
     background: red;
-    width: 200px;
+    width: 150px;
     height: 200px;
+    border-radius: 18px;
+}
+
+.favorite-books {
+    display: flex;
+    width: 100%;
+
+}
+
+.favorite-books-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px;
+    transform: scale(80%);
+    opacity: 0.4;
+    box-shadow: 0 0 3px 2px #ddd;
+}
+.favorite-books-item.active {
+    opacity: 1;
+    transform: scale(100%);
+}
+
+.favorite-books-item a {
+    margin: 8px;
+    text-align: center;
+    display: inline-block;
+}
+
+.favorite-books-item img {
+    margin: 0 auto;
+    background: red;
+    width: 150px;
     border-radius: 18px;
 }
 
 
 .books-item_title {
     color: black;
+    /*margin: 10px;*/
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
@@ -57,8 +146,4 @@ header {
     font-size: 14px;
 }
 
-footer {
-    height: 200px;
-    background:darkcyan;
-}
 

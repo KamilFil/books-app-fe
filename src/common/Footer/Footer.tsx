@@ -1,31 +1,37 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Footer.css"
-interface BrandData {
-    img: string,
-    title: string,
-    desc: string,
+
+interface FooterMenu {
+    menu: MenuData[];
 }
 interface MenuData {
     title: string;
     link: {name: string, link: string}[]
 }
 
-interface BrandSite {
-    img: string,
+interface FooterBrand {
+    img: [
+        { link: string,
+        title: string,}
+    ]
     title: string,
+    desc: string,
 }
 
+const dataBrand: FooterBrand = {
+    img:[
+        {
+            link:"logo.png",
+        title:"Logo"
+        }
 
-const img: BrandSite = {
-    img:"logo.png",
-    title: 'Books.pl'
-}
-interface FooterMenu {
-    menu: MenuData[];
+    ],
+    title: 'Books.pl',
+    desc: "Witaj na naszej stronie, znajdziesz tu mam nadzieję wiele ciekawych książek, które pomogą Ci znaleźć odpowiedź na nurtujące Cię pytania"
 }
 
-const dataMenu: FooterMenu = {
+const footerMenu: FooterMenu = {
     // title:'Books.pl',
     menu:[
         { title: "Nawigacja",
@@ -53,30 +59,20 @@ const dataMenu: FooterMenu = {
     ]
 }
 
-const dataBrand: BrandData ={
-    img:"logo.png",
-    title: 'Books.pl',
-    desc: "Witaj na naszej stronie, znajdziesz tu mam nadzieję wiele ciekawych książek, które pomogą Ci znaleźć odpowiedź na nurtujące Cię pytania"
-}
-
 export const Footer = () => {
-
-
     return (
         <footer>
-
             <div className="footer-column">
                 <div className="footer-brand">
                     <p>Books.pl</p>
                     <p>{dataBrand.desc}</p>
                 </div>
-                {dataMenu.menu.map(el =>
+                {footerMenu.menu.map(el =>
                     <div className="footer-item">
                         <p>{el.title}</p>
                         {el.link.map(el => <li><Link to={el.link}>{el.name}</Link></li>)}
                     </div>
                 )}
-
             </div>
             <p className="footer-copy"> Strona stworzona na potrzeby portfolio</p>
         </footer>

@@ -2,52 +2,29 @@ import React from "react";
 import {BooksItem} from "./BooksItem";
 
 
-interface BookData {
+interface itemBook {
+    title:string,
+    img:string,
+    desc:string
+    text?:string
+}
+
+interface Props {
     category:{categoryName:string}[]
-    data:any[]
+    dataBooks:itemBook[]
 }
 
 
-const BookSection: BookData = {
-    category: [
-        {categoryName: "Organizacja"},
-        {categoryName: "IT",},
-        {categoryName: "Inne",}
-    ],
-    data: [{
-        title: "Zjedz tę żabę",
-        img: '/testb.jpg',
-        desc: 'Zjedz tę zabę, książka o organizacji czasu pracy',
-        text: '',
-    },
-        {
-            title: "Ilustrowany przewosnik o algorytmach",
-            img: '/testa.jpg',
-            desc: 'Książka o stosowanych algorytmach w IT',
-            text: '',
-        },
-        {
-            title: "Zjedz tę żabę",
-            img: '/testb.jpg',
-            desc: 'Zjedz tę zabę, książka o organizacji czasu pracy',
-            text: '',
-        },
-        {
-            title: "Kamile",
-            img: '/testa.jpg',
-            desc: 'test',
-            text: '',
-        },]
-}
 
-export const BooksSection = () => {
+
+export const BooksSection = (props: Props) => {
     return (
         <>
-            {BookSection.category.map(el =>
+            {props.category.map(el =>
                 <section className="books">
                     <h2 className="books-title">{el.categoryName}</h2>
                     <div className="books-section">
-                    <BooksItem data={BookSection.data}></BooksItem>
+                    <BooksItem data={props.dataBooks}></BooksItem>
                     </div>
                 </section>
             )}

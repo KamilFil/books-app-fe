@@ -7,10 +7,36 @@ import {BooksSection} from "../../common/Books/BooksSection";
 
 export const HomePageViews = () => {
 
-    const check = {
-        user: "Uzytkownik",
-        age: 0,
-        description: "dwadawdaw dawdwadawdaw wadwad wadwd awdawdwada"
+    const dataBooks = {
+        category: [
+            {categoryName: "Organizacja"},
+            {categoryName: "IT",},
+            {categoryName: "Inne",}
+        ],
+        dataBooks: [{
+            title: "Zjedz tę żabę",
+            img: '/testb.jpg',
+            desc: 'Zjedz tę zabę, książka o organizacji czasu pracy',
+            text: '',
+        },
+            {
+                title: "Ilustrowany przewosnik o algorytmach",
+                img: '/testa.jpg',
+                desc: 'Książka o stosowanych algorytmach w IT',
+                text: '',
+            },
+            {
+                title: "Zjedz tę żabę",
+                img: '/testb.jpg',
+                desc: 'Zjedz tę zabę, książka o organizacji czasu pracy',
+                text: '',
+            },
+            {
+                title: "Kamile",
+                img: '/testa.jpg',
+                desc: 'test',
+                text: '',
+            },]
     }
 
 
@@ -45,8 +71,8 @@ export const HomePageViews = () => {
 
                 </div>
             </header>
-            <BooksSection/>
-            <Footer></Footer>
+            <BooksSection category={dataBooks.category} dataBooks={dataBooks.dataBooks}/>
+            <Footer/>
             </>
     )
 }

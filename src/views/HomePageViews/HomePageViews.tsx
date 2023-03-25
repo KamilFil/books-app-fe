@@ -47,8 +47,8 @@ export const HomePageViews = () => {
                 <div className="container">
 
                     <div className="head-info">
-                        <h1>Twoja księgarnia online</h1>
-                        <p>Twoje najlepsze kolekcje ksiązek</p>
+                        <h1>Świat Książek</h1>
+                        <p>Zbiór książek tworzony przez użytkowników</p>
                         <Link to="/blog" className="head-info_link">Blog</Link>
                     </div>
                     <div className="favorite-books">

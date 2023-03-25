@@ -50,8 +50,8 @@ return (
                             <p className="book-item_opinion_desc">lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
                         </div>
                     </div>
-                    <div className="btn-back">
-                        <Link to={"/"}>Wróc</Link>
+                    <div className="btn">
+                        <Link className="btn-back" to={"/"}>Wróc</Link>
                     </div>
                 </div>
             </div>

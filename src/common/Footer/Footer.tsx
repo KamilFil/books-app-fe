@@ -41,13 +41,6 @@ const footerMenu: FooterMenu = {
                 {name: "Zaloguj", link: "/zaloguj/"}
             ]
         },
-        { title: "Blog",
-            link:[
-                {name: "Wpis1", link: "/wpis1/"},
-                {name: "Wpis2", link: "/wpis2/"},
-                {name: "Wpis3", link: "/wpis3/"}
-            ]
-        },
         { title: "Top książki",
             link:[
                 {name: "Książka 1", link: "/id1"},

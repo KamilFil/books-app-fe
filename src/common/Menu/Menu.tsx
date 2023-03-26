@@ -21,7 +21,6 @@ const img: BrandSite = {
 
 const menu: Menu[] = [
     {name: "Strona główna", link: "/", title:'Strona główna'},
-    {name: "Kategorie", link: "/category", title:'Kategorie'},
     {name: "Zaloguj", link: "/login", title:'Zaloguj'}
 ]
 

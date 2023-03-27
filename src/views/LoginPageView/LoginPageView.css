@@ -1,0 +1,97 @@
+.login-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.login-page_section {
+    margin: 0 auto;
+    width: 1280px;
+    padding: 30px;
+    display: flex;
+    /*box-shadow: 0px 0px 2px 1px #bbb;*/
+    justify-content: space-evenly;
+
+}
+
+.login-panel {
+    border:2px solid darkcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*background: darkcyan;*/
+    box-shadow: 0px 0px 0px 1px #aaa;
+    padding: 40px;
+    min-height: 250px;
+    border-radius: 10px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 10px;
+}
+.form-login label{
+    width: 100%;
+    margin: 10px 0 ;
+background: red;
+}
+
+.input-item {
+    margin-bottom: 10px;
+}
+
+.form-login input {
+
+    padding: 4px 0;
+    width: 100%;
+}
+
+.form-login input.error {
+    border: 1px solid red;
+}
+
+input:active, input:focus-visible
+{
+    outline: none;
+
+}
+
+.form-login input.success {
+    border: 1px solid #45c745;
+}
+
+.login-panel-info_title {
+    font-size: 20px;
+    font-family: "DejaVu Sans Condensed";
+    font-weight: 600;
+    margin-bottom: 10px;
+    /*text-align: center;*/
+}
+
+
+.sing-up {
+    margin-top: 8px;
+    border: none;
+    background: darkcyan;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.sing-up:hover {
+    background: rgba(0, 139, 139, 0.7);
+}
+
+.error-info {
+    color: red;
+    /*background: white;*/
+    font-size:14px
+}

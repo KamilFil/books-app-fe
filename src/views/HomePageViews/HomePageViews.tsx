@@ -49,23 +49,23 @@ export const HomePageViews = () => {
                     <div className="head-info">
                         <h1>Świat Książek</h1>
                         <p>Zbiór książek tworzony przez użytkowników</p>
-                        <Link to="/blog" className="head-info_link">Blog</Link>
+                        <Link to="/add-book" className="head-info_link">Dodaj książkę</Link>
                     </div>
                     <div className="favorite-books">
                         <div className="favorite-books-item ">
                             <img src="img/testb.jpg" alt="alternatywny tekst"/>
                             <p>Zjedz tę żabę</p>
-                            <Link to="/blog" className="btn small">Zobacz</Link>
+                            <Link to="/books/1" className="btn small">Zobacz</Link>
                         </div>
                         <div className="favorite-books-item active">
                             <img src="img/testa.jpg" alt="alternatywny tekst"/>
                             <p>Ilustrowany przewodnik o algorymtach</p>
-                            <Link to="/blog" className="btn small">Zobacz</Link>
+                            <Link to="/books/1" className="btn small">Zobacz</Link>
                         </div>
                         <div className="favorite-books-item">
                             <img src="img/testb.jpg" alt="alternatywny tekst"/>
                             <p>Zjedz tę żabę</p>
-                            <Link to="/blog" className="btn small">Zobacz</Link>
+                            <Link to="/books/1" className="btn small">Zobacz</Link>
                          </div>
                     </div>
 

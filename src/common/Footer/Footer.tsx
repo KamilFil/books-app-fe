@@ -37,15 +37,7 @@ const footerMenu: FooterMenu = {
         { title: "Nawigacja",
             link:[
                 {name: "Strona główna", link: "/"},
-                {name: "Kategorie", link: "/kategorie/"},
-                {name: "Zaloguj", link: "/zaloguj/"}
-            ]
-        },
-        { title: "Blog",
-            link:[
-                {name: "Wpis1", link: "/wpis1/"},
-                {name: "Wpis2", link: "/wpis2/"},
-                {name: "Wpis3", link: "/wpis3/"}
+                {name: "Zaloguj", link: "/login"}
             ]
         },
         { title: "Top książki",

@@ -49,7 +49,7 @@ export const HomePageViews = () => {
                     <div className="head-info">
                         <h1>Świat Książek</h1>
                         <p>Zbiór książek tworzony przez użytkowników</p>
-                        <Link to="/login" className="head-info_link">Zaloguj się</Link>
+                        <Link to="/add-book" className="head-info_link">Dodaj książkę</Link>
                     </div>
                     <div className="favorite-books">
                         <div className="favorite-books-item ">

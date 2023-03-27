@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Menu.css'
-interface Menu {
+interface MenuType {
     name: string,
     title: string,
     link: string,
@@ -19,9 +19,9 @@ const img: BrandSite = {
 }
 
 
-const menu: Menu[] = [
+const menu: MenuType[] = [
     {name: "Strona główna", link: "/", title:'Strona główna'},
-    {name: "Zaloguj", link: "/login", title:'Zaloguj'}
+    {name: "Dodaj książkę", link: "/add-book", title:'Dodawanie ksiązki'}
 ]
 
 

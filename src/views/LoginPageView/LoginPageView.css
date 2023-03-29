@@ -8,10 +8,10 @@
 
 .login-page_section {
     margin: 0 auto;
-    width: 1280px;
+    max-width: 1280px;
+    width: 100%;
     padding: 30px;
     display: flex;
-    /*box-shadow: 0px 0px 2px 1px #bbb;*/
     justify-content: space-evenly;
 
 }
@@ -69,7 +69,6 @@ input:active, input:focus-visible
     font-family: "DejaVu Sans Condensed";
     font-weight: 600;
     margin-bottom: 10px;
-    /*text-align: center;*/
 }
 
 

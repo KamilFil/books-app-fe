@@ -1,0 +1,105 @@
+.add-book_section {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-book-info {
+    width: 40%;
+}
+
+.add-book-info ol {
+    margin: 20px 30px;
+
+}
+
+.add-book-info li::marker {
+    font-weight: bold;
+}
+
+.add-book-info li {
+/*font-weight: 500;*/
+    margin-top: 5px;
+}
+
+.add-book-panel {
+    width: 40%;
+    box-shadow: 0px 0px 5px 0px #838383;
+    padding: 30px;
+
+}
+
+.add-book-panel_title {
+    font-size: 20px;
+    font-family: "DejaVu Sans Condensed";
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.form-add-book {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.form-add-book label{
+    width: 100%;
+    margin: 10px 0 ;
+    background: red;
+}
+
+.input-item {
+    margin-bottom: 10px;
+}
+
+.form-add-book input {
+
+    padding: 4px 5px;
+    width: 100%;
+}
+
+.form-add-book textarea {
+    padding: 4px 5px;
+    width: 100%;
+    min-height: 100px;
+}
+
+.form-add-book input.error {
+    border: 1px solid red;
+}
+
+input:active, input:focus-visible
+{
+    outline: none;
+
+}
+
+textarea:active, textarea:focus-visible
+{
+    outline: none;
+
+}
+
+.form-add-book input.success {
+    border: 1px solid #45c745;
+}
+
+.form-add-book .btn {
+    margin-top: 8px;
+    border: none;
+    background: darkcyan;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+}
+
+.form-add-book .btn:hover {
+    background: rgba(0, 139, 139, 0.7);
+}

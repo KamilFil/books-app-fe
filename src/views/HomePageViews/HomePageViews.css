@@ -41,7 +41,6 @@ margin-top: 12px;
     border-radius: 4px;
     transition: 0.3s;
     font-weight: bold;
-    /*text-transform: uppercase;*/
 }
 
 
@@ -99,7 +98,6 @@ margin-top: 12px;
 
 .books-item img {
     margin: 0 auto;
-    background: red;
     width: 150px;
     height: 200px;
     border-radius: 18px;

@@ -26,7 +26,7 @@ const menu: MenuType[] = [
 
 
 export const Menu = () => {
-    return (  <nav>
+    return (  <nav className="main-menu">
             <div className="container-menu">
                 <div className="menu-item">
                     <img src={`/img/${img.img}`} title={img.title}/>

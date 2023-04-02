@@ -1,0 +1,276 @@
+.panel-admin-page {
+    display: flex;
+    height: 100%;
+}
+
+.panel-admin-menu {;
+    /*position: sticky;*/
+    height: 100vh;
+    box-shadow: 0 0 20px 3px #ddd;
+    border-right: 2px solid #ddd;
+    min-width: 200px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-admin-menu nav {
+    margin-top: 20px;
+    width: 80%;
+}
+
+.admin-menu-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.panel-admin-menu nav li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.panel-admin-menu li a {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    text-decoration:none;
+    color: #505050;
+    font-size: 12px;
+    padding: 3px 0;
+    border-bottom: 1px solid #ddd;
+    transition: 0.2s;
+}
+
+.panel-admin-menu li a:hover {
+    color: darkcyan;
+    border-bottom: 1px solid darkcyan;
+}
+
+.panel-admin-menu_img {
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-admin-menu img {
+    width:90px;
+}
+
+.dashboard-admin {
+    height: 100%;
+    background: #e3f3f3;
+}
+
+main {
+    position: relative;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-info img {
+    border: 3px solid rgba(0, 139, 139, 0.7);
+    margin-left: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.user-info p {
+    color: black;
+    font-weight: bold;
+}
+
+.dashboard-head {
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 1px 2px #ddd;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-head_container{
+    width: 95%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-head_container h1 {
+    font-size: 20px;
+}
+
+
+.dashboard-info {
+    padding: 30px 0;
+    margin: 0 auto;
+    display: flex;
+    width: 95%;
+    flex-basis: 48%;
+    justify-content: space-around;
+}
+
+.dashboard {
+    flex-basis: 48%;
+}
+
+
+.dash{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    min-height: 200px;
+    flex-wrap: wrap;
+}
+
+section.dash > div {
+    box-shadow: 0 0 6px 0px rgba(148, 171, 171, 0.87);
+    border-radius: 2px;
+    padding: 8px;
+    background: white;
+}
+
+.dash-stats {
+    width: 100%;
+}
+
+.dash-stats > p {
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 10px 10px;
+}
+
+.dash-list {
+    margin-top: 20px;
+    flex-basis: 48%;
+    min-height: 200px
+}
+
+.footer-dash {
+    bottom:0;
+    height: 200px;
+    background: #bfe1e1;
+    width: 100%;
+    border-top: 5px solid rgba(139, 182, 182, 0.89);
+}
+
+th {
+    text-align: left;
+}
+
+.stats-container {
+    display: flex;
+    padding: 10px 10px;
+    justify-content: space-around;
+}
+
+.stats-item {
+    box-shadow: 0 0 4px 1px #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 25px 0;
+}
+
+.stats-item p{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.stats-circle {
+    width: 150px;
+    height: 150px;
+    border: 10px solid #ddd;
+    border-radius: 100%;
+    background: rgba(229, 134, 134, 0.85);
+    position: relative;
+}
+
+.stats-circle p {
+    position: absolute;
+top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.stats-circle.accept {
+    background: rgb(138, 197, 138);
+}
+.stats-circle.to-accept {
+    background: rgba(225, 164, 115, 0.85);
+}
+
+
+.dash-list p {
+    color: black;
+    border-bottom: 3px solid #027c7c;
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+}
+
+th {
+    font-size: 15px;
+    text-align: center;
+}
+
+tr:nth-last-child(even) {
+    background: white;
+}
+
+tbody > tr {;
+    width: 100%;
+    background-color: #efefef;
+    font-weight: normal;
+}
+
+tr > td:first-child, th:first-child {
+    text-align: left;
+}
+
+td {
+    padding: 3px 0;
+    vertical-align: 3px;
+}
+
+i {
+    color: darkcyan;
+    font-size: 16px;
+    padding: 0px 2px ;
+    /*background: red;*/
+}
+
+.fa-circle-check {
+ color: rgb(138, 197, 138)
+}
+
+.fa-circle-xmark {
+    color:rgba(229, 134, 134, 0.85);
+}
+
+.fa-file-pen {
+    color: #617ca4;
+}
+
+button {
+    background: none;
+    border: none;
+}

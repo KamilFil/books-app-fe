@@ -1,0 +1,25 @@
+
+
+.list-info {
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 8px;
+    width: 95%;
+    background: white;
+}
+
+.book-list > p {
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+
+td,th {
+    padding: 3px 3px;
+    vertical-align: 3px;
+}
+
+table {
+    /*background: #027c7c;*/
+}

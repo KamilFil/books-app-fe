@@ -25,6 +25,18 @@ html, body, #root {
     font-weight: bold;
 }
 
+.btn.small {
+    display: inline-block;
+    text-decoration: none;
+    background: darkcyan;
+    color: white;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
 a.btn-back:hover {
     background: #02b4b4;
 }

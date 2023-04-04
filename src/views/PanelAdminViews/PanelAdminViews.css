@@ -1,17 +1,16 @@
 .panel-admin-page {
     display: flex;
-    height: 100%;
+    width: 100%;
 }
 
 .panel-admin-menu {;
-    /*position: sticky;*/
-    height: 100vh;
-    box-shadow: 0 0 20px 3px #ddd;
-    border-right: 2px solid #ddd;
-    min-width: 200px;
-    align-items: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 200px;
+    box-shadow: 0 0 20px 3px #ddd;
+    border-right: 2px solid #ddd;
 }
 
 .panel-admin-menu nav {
@@ -273,4 +272,54 @@ i {
 button {
     background: none;
     border: none;
+}
+
+
+@media (max-width: 480px) {
+   .panel-admin-menu {
+       width: 60px;
+   }
+    .dashboard-info {
+        flex-wrap: wrap;
+    }
+
+    .dashboard {
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+
+    .dash-list {
+        flex-basis: 100%;
+    }
+
+    .dash-stats {
+        width: 100%;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .stats-item {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .panel-admin-menu_img img {
+        width: 40px;
+    }
+
+}
+
+@media (max-width: 1310px) {
+    .dashboard-info {
+        flex-wrap: wrap;
+    }
+
+    .dashboard {
+        margin-bottom: 20px;
+       flex-basis: 100%;
+    }
 }

@@ -55,3 +55,11 @@ width: 20%;
     background: #027c7c;
     text-align: center;
 }
+
+
+@media (max-width: 480px) {
+    .footer-column div {
+        padding: 10px 20px;
+        width: 100%;
+    }
+}

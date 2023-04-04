@@ -45,7 +45,6 @@ background: red;
 }
 
 .form-login input {
-
     padding: 4px 0;
     width: 100%;
 }
@@ -93,4 +92,19 @@ input:active, input:focus-visible
     color: red;
     /*background: white;*/
     font-size:14px
+}
+
+@media (max-width: 480px) {
+    .login-page_section {
+        flex-wrap: wrap;
+    }
+
+    .login-info {
+        width: 100%;
+    }
+
+    .login-panel {
+        margin: 30px;
+        width: 100%;
+    }
 }

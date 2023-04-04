@@ -20,6 +20,39 @@ td,th {
     vertical-align: 3px;
 }
 
-table {
-    /*background: #027c7c;*/
+@media (max-width: 480px) {
+
+    #root {
+        width: 100%;
+    }
+
+    .panel-admin-page {
+        display: flex;
+        /*background: #027c7c;*/
+        width: 100%;
+    }
+
+    .panel-admin-menu {
+        width: 15%;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        flex-wrap: nowrap;
+        flex-grow: 1;
+    }
+
+    .list-info {
+        overflow: hidden;
+        width: 90%;
+    }
+
+    .book-list {
+
+        width: 100%;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 }

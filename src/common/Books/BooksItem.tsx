@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
+import "./BooksItem.css"
 interface itemBook {
     title:string,
     img:string,

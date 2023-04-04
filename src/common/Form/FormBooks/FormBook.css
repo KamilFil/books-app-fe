@@ -103,3 +103,19 @@ textarea:active, textarea:focus-visible
 .form-add-book .btn:hover {
     background: rgba(0, 139, 139, 0.7);
 }
+
+@media (max-width: 480px) {
+    .add-book_section {
+        padding: 30px;
+        flex-wrap: wrap;
+    }
+
+    .add-book-info{
+    width: 100%;
+    }
+
+    .add-book-panel {
+        margin-top: 30px;
+        width: 100%;
+    }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import {BooksItem} from "./BooksItem";
-
+import "./BooksSection.css"
 
 interface itemBook {
     title:string,

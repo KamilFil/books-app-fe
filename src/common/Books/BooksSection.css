@@ -34,7 +34,7 @@
     background: #fff;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 8px 0px #858585;
+    box-shadow: 0 0 8px 0 #858585;
     padding: 30px 20px;
     border-radius: 8px;
     width: 20%;
@@ -75,7 +75,13 @@
 }
 
 .books-item_desc {
+    display: block;
     font-size: 14px;
+    width: 200px;
+    height: 80px;
+    white-space: break-spaces;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @media (max-width: 1200px) {

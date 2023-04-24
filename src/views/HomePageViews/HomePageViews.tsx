@@ -2,42 +2,21 @@ import './HomePageViews.css'
 import {Menu} from "../../common/Menu/Menu";
 import { Link } from 'react-router-dom';
 import {Footer} from "../../common/Footer/Footer";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {BooksSection} from "../../common/Books/BooksSection";
+import axios from 'axios';
 
 export const HomePageViews = () => {
 
-    const dataBooks = {
-        category: [
-            {categoryName: "Organizacja"},
-            {categoryName: "IT",},
-            {categoryName: "Inne",}
-        ],
-        dataBooks: [{
-            title: "Zjedz tę żabę",
-            img: '/testb.jpg',
-            desc: 'Zjedz tę zabę, książka o organizacji czasu pracy',
-            text: '',
-        },
-            {
-                title: "Ilustrowany przewosnik o algorytmach",
-                img: '/testa.jpg',
-                desc: 'Książka o stosowanych algorytmach w IT',
-                text: '',
-            },
-            {
-                title: "Zjedz tę żabę",
-                img: '/testb.jpg',
-                desc: 'Zjedz tę zabę, książka o organizacji czasu pracy',
-                text: '',
-            },
-            {
-                title: "Kamile",
-                img: '/testa.jpg',
-                desc: 'test',
-                text: '',
-            },]
-    }
+    const [data, setData] = useState<[] | null>(null)
+
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/books/", {withCredentials: true}).then((res) => {
+            setData(res.data)
+        })
+    },[setData])
+
 
 
 
@@ -71,7 +50,7 @@ export const HomePageViews = () => {
 
                 </div>
             </header>
-            <BooksSection category={dataBooks.category} dataBooks={dataBooks.dataBooks}/>
+            <BooksSection dataBooks={data}/>
             <Footer/>
             </>
     )

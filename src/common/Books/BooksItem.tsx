@@ -2,27 +2,29 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./BooksItem.css"
 interface itemBook {
-    title:string,
+    id:string;
+    name:string,
     img:string,
-    desc:string
+    description:string
     text?:string;
 
 }
 interface Props {
     data: itemBook[] | null;
 }
-
+const imgPath = "http://localhost:3001/uploads/"
 export const BooksItem = (props: Props) => {
 
-    // props === null
+
+
 
     return (
     <>
-        { props.data === null ? <p>Ładowanie elementów</p> : props.data.map(el => <div className="books-item">
-        <img src={`img/${el.img}`} alt={el.title}/>
+        { props.data === null ? <p>Ładowanie elementów</p> : props.data.slice(0,4).map(el => <div className="books-item">
+        <img src={`${imgPath}${el.img}`} alt={el.name}/>
          <div className="books-item_info">
-             <Link className="books-item_title" to={`books/${el.title}`}>{el.title}</Link>
-             <p className="books-item_desc">{el.desc}</p>
+             <Link className="books-item_title" to={`books/${el.id}`}>{el.name}</Link>
+             <p className="books-item_desc">{el.description}</p>
          </div>
     </div>
     )}

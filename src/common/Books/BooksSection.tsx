@@ -3,26 +3,28 @@ import {BooksItem} from "./BooksItem";
 import "./BooksSection.css"
 
 interface itemBook {
-    title:string,
+    id:string
+    name:string,
     img:string,
-    desc:string
+    description:string
     text?:string
 }
 
 interface Props {
-    category:{categoryName:string}[]
-    dataBooks:itemBook[]
+    dataBooks:itemBook[] | null
 }
 
+const category = ["it", "organizacja", "grafika"]
 
 
 
 export const BooksSection = (props: Props) => {
+
     return (
         <>
-            {props.category.map(el =>
+            {category.map(el =>
                 <section className="books">
-                    <h2 className="books-title">{el.categoryName}</h2>
+                    <h2 className="books-title">{el}</h2>
                     <div className="books-section">
                     <BooksItem data={props.dataBooks}></BooksItem>
                     </div>

@@ -18,8 +18,6 @@ export const HomePageViews = () => {
     },[setData])
 
 
-
-
     return (
         <>   <Menu></Menu>
             <header>

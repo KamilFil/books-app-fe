@@ -20,19 +20,18 @@ export const App = () => {
 
   return (
       <AuthProvider>
-<Routes>
-    <Route path="/" element={<HomePageViews/>}/>
-    <Route path="/books/:id" element={<OnePageView/>}/>
-     <Route path="/login" element={<LoginPageView/>}/>
-     <Route path="/add-book" element={<AddedBooksView/>}/>
-   <Route element={<PrivateRoute/>}>
-       <Route path="/panel-admin" element={<PanelAdminViews/>}/>
-       <Route path="/panel-admin/books" element={<PanelAdminBooks/>}/>
-       <Route path="/panel-admin/users" element={<PanelAdminUsers/>}/>
-   </Route>
-    <Route path="*" element={<ErrorPage/>}/>
-
-</Routes>
+        <Routes>
+            <Route path="/" element={<HomePageViews/>}/>
+            <Route path="/books/:id" element={<OnePageView/>}/>
+             <Route path="/login" element={<LoginPageView/>}/>
+             <Route path="/add-book" element={<AddedBooksView/>}/>
+           <Route element={<PrivateRoute/>}>
+               <Route path="/panel-admin" element={<PanelAdminViews/>}/>
+               <Route path="/panel-admin/books" element={<PanelAdminBooks/>}/>
+               <Route path="/panel-admin/users" element={<PanelAdminUsers/>}/>
+           </Route>
+            <Route path="*" element={<ErrorPage/>}/>
+        </Routes>
       </AuthProvider>
 
   );

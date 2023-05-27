@@ -23,9 +23,7 @@ export const FormBook = () => {
     const [send, setSend] = useState<string | null>(null)
 
     const sendBook = async() => {
-        console.log( formik.values)
         try {
-
             const data = new FormData()
             data.append('file', formik.values.file)
             const uploadRes =  await axios.post("http://localhost:3001/send-file/upload/",data , {headers: {'Content-Type': 'multipart/form-data'},withCredentials: true}).then((res) => res.data)
@@ -93,7 +91,7 @@ export const FormBook = () => {
             </div>
             <div className="add-book-panel">
                 <div className="add-book-panel_info">
-                    <form encType="multipart/form-data" className="form-add-book" onSubmit={formik.handleSubmit}>
+                    <form encType="multipart/form-data" className="form-add-book" onChange={formik.handleChange} onSubmit={formik.handleSubmit}>
                         <div className="input-item">
                          <input id="name" name="name" onChange={formik.handleChange} value={formik.values.name} placeholder="Tytuł książki"/>
                             {formik.errors.name ? <p className="error-info">{formik.errors.name}</p> : null}

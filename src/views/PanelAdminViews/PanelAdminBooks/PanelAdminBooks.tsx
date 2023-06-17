@@ -1,13 +1,46 @@
 import {Link} from "react-router-dom";
 import "./PanelAdminBooks.css"
+import { useEffect, useState} from "react";
+import axios from "axios";
+
+interface itemBook {
+    id:string;
+    name:string,
+    img:string,
+    description:string
+    text?:string;
+    active: boolean;
+    likeQuantity:number;
+}
 export const PanelAdminBooks = () => {
 
-    const sendAccecptBooks = () => {
-        console.log("Działa")
+    const [data, setData] = useState<itemBook[] | null>(null)
+    const [load, setLoad] = useState(false)
+
+    useEffect(()=> {
+        axios.get('http://localhost:3001/books/', {withCredentials: true}).then((res) => {
+            setData(res.data)
+        })
+    },[load])
+
+
+
+
+    const sendAccecptBooks = async (id: string) => {
+        setLoad(true)
+       await axios.get(`http://localhost:3001/books/active/${id}`, {withCredentials: true}).then((res) => {
+          return res.data
+       })
+        setLoad(false)
+    }
+
+    if(data === null) {
+        return <p>Ładowanie</p>
     }
 
 
     return (
+
         <div className="panel-admin-page">
             <div className="panel-admin-menu">
                 <div className="panel-admin-menu_img">
@@ -51,7 +84,6 @@ export const PanelAdminBooks = () => {
                                         <thead>
                                         <tr>
                                             <th>Tytuł</th>
-                                            <th>Opis</th>
                                             <th>Ilość polubień</th>
                                             <th>Data</th>
                                             <th>Opublikowany</th>
@@ -59,67 +91,21 @@ export const PanelAdminBooks = () => {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Zjedz tę żabę</td>
-                                            <td>opis</td>
-                                            <td>200</td>
-                                            <td>10.01.2022</td>
-                                            <td>Tak</td>
-                                            <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                                <button><i className="fa-solid fa-file-pen"></i></button>
-                                                <button type="submit" onClick={sendAccecptBooks}><i className="fa-solid fa-circle-check"></i></button>
-                                                <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zjedz tę żabę</td>
-                                            <td>opis</td>
-                                            <td>200</td>
-                                            <td>10.01.2022</td>
-                                            <td>Tak</td>
-                                            <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                                <button><i className="fa-solid fa-file-pen"></i></button>
-                                                <button type="submit" onClick={sendAccecptBooks}><i className="fa-solid fa-circle-check"></i></button>
-                                                <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zjedz tę żabę</td>
-                                            <td>opis</td>
-                                            <td>200</td>
-                                            <td>10.01.2022</td>
-                                            <td>Tak</td>
-                                            <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                                <button><i className="fa-solid fa-file-pen"></i></button>
-                                                <button type="submit" onClick={sendAccecptBooks}><i className="fa-solid fa-circle-check"></i></button>
-                                                <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zjedz tę żabę</td>
-                                            <td>opis</td>
-                                            <td>200</td>
-                                            <td>10.01.2022</td>
-                                            <td>Tak</td>
-                                            <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                                <button><i className="fa-solid fa-file-pen"></i></button>
-                                                <button type="submit" onClick={sendAccecptBooks}><i className="fa-solid fa-circle-check"></i></button>
-                                                <button><i className="fa-solid fa-circle-xmark"></i></button>
+                                        {data.map(el =>
+                                            <tr>
+                                                <td>{el.name}</td>
+                                                <td>{el.likeQuantity}</td>
+                                                <td>10.01.2022</td>
+                                                <td>{el.active ? "Tak" : "Nie"}</td>
+                                                <td> <Link to={`/books/${el.id}`}><i className="fa-solid fa-eye"></i></Link>
+                                                    <button id={`data-id=${el.id}`}><i className="fa-solid fa-file-pen"></i></button>
+                                                    {el.active ?  <button type="submit" onClick={(e) => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-check"></i></button> : <button type="submit" onClick={(e) => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-xmark"></i></button>}
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zjedz tę żabę</td>
-                                            <td>opis</td>
-                                            <td>200</td>
-                                            <td>10.01.2022</td>
-                                            <td>Tak</td>
-                                            <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                                <button><i className="fa-solid fa-file-pen"></i></button>
-                                                <button type="submit" onClick={sendAccecptBooks}><i className="fa-solid fa-circle-check"></i></button>
-                                                <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                            </td>
-                                        </tr>
+
+                                                </td>
+                                            </tr>
+                                        )}
+
                                         </tbody>
                                     </table>
                                 </div>

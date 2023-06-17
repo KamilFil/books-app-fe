@@ -12,10 +12,10 @@ export const HomePageViews = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/books/", {withCredentials: true}).then((res) => {
+        axios.get("http://localhost:3001/books/active", {withCredentials: true}).then((res) => {
             setData(res.data)
         })
-    },[setData])
+    },[])
 
 
     return (

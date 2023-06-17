@@ -26,8 +26,10 @@ export const FormBook = () => {
         try {
             const data = new FormData()
             data.append('file', formik.values.file)
-            const uploadRes =  await axios.post("http://localhost:3001/send-file/upload/",data , {headers: {'Content-Type': 'multipart/form-data'},withCredentials: true}).then((res) => res.data)
-            const bookRes =  await axios.post("http://localhost:3001/books/", {
+             await axios.post("http://localhost:3001/send-file/upload/",data , { headers: {
+                    'Content-Type': 'multipart/form-data',
+                },withCredentials: true}).then((res) => res.data)
+            await axios.post("http://localhost:3001/books/", {
                 name:formik.values.name,
                 img:formik.values.img,
                 description:formik.values.description,
@@ -71,6 +73,7 @@ export const FormBook = () => {
         onSubmit:sendBook,
     })
 
+
     return (
         <div className="add-book_section">
             <div className="add-book-info">
@@ -97,9 +100,9 @@ export const FormBook = () => {
                             {formik.errors.name ? <p className="error-info">{formik.errors.name}</p> : null}
                         </div>
                         <div className="input-item">
-                          <input type="file" id="file" name="file"  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                              formik.setFieldValue('file', event.target.files?.[0]);
-                              formik.setFieldValue('img', event.target.files?.[0].name);
+                          <input type="file" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              formik.setFieldValue('file', e.currentTarget.files?.[0]);
+                              formik.setFieldValue('img', e.currentTarget.files?.[0].name);
                           }} />
 
                         </div>

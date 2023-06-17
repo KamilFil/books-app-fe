@@ -1,8 +1,33 @@
 import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
+
+interface UsersType {
+    id?: string;
+    email: string;
+    role: number,
+    username: string,
+    active: boolean,
+}
 export const PanelAdminUsers = () => {
+
+    const [data, setData] = useState<UsersType[] | null>(null)
+
+
+
+
+    useEffect(()=> {
+       axios.get('http://localhost:3001/users/', {withCredentials: true}).then((res) => {
+           setData(res.data)
+       })
+    },[])
 
     const sendAccecptUser = () => {
         console.log("Działa")
+    }
+
+    if (data === null) {
+        return <p>Ładowanie</p>
     }
 
 
@@ -58,66 +83,18 @@ export const PanelAdminUsers = () => {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Kamil</td>
-                                    <td>Kamiltest@test.pl</td>
-                                    <td>Admin</td>
+                                {data.map(el =>  <tr>
+                                    <td>{el.username}</td>
+                                    <td>{el.email}</td>
+                                    <td>{el.role === 0 ? "Admin" : "User"}</td>
                                     <td>10.01.2022</td>
-                                    <td>Tak</td>
+                                    <td>{!el.active ? "Nie" : "Tak"}</td>
                                     <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
                                         <button><i className="fa-solid fa-file-pen"></i></button>
                                         <button type="submit" onClick={sendAccecptUser }><i className="fa-solid fa-circle-check"></i></button>
                                         <button><i className="fa-solid fa-circle-xmark"></i></button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>Kamil</td>
-                                    <td>Kamiltest@test.pl</td>
-                                    <td>Admin</td>
-                                    <td>10.01.2022</td>
-                                    <td>Tak</td>
-                                    <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                        <button><i className="fa-solid fa-file-pen"></i></button>
-                                        <button type="submit" onClick={sendAccecptUser }><i className="fa-solid fa-circle-check"></i></button>
-                                        <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kamil</td>
-                                    <td>Kamiltest@test.pl</td>
-                                    <td>Admin</td>
-                                    <td>10.01.2022</td>
-                                    <td>Tak</td>
-                                    <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                        <button><i className="fa-solid fa-file-pen"></i></button>
-                                        <button type="submit" onClick={sendAccecptUser }><i className="fa-solid fa-circle-check"></i></button>
-                                        <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kamil</td>
-                                    <td>Kamiltest@test.pl</td>
-                                    <td>Admin</td>
-                                    <td>10.01.2022</td>
-                                    <td>Tak</td>
-                                    <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                        <button><i className="fa-solid fa-file-pen"></i></button>
-                                        <button type="submit" onClick={sendAccecptUser }><i className="fa-solid fa-circle-check"></i></button>
-                                        <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kamil</td>
-                                    <td>Kamiltest@test.pl</td>
-                                    <td>Admin</td>
-                                    <td>10.01.2022</td>
-                                    <td>Tak</td>
-                                    <td> <Link to='/books/d'><i className="fa-solid fa-eye"></i></Link>
-                                        <button><i className="fa-solid fa-file-pen"></i></button>
-                                        <button type="submit" onClick={sendAccecptUser }><i className="fa-solid fa-circle-check"></i></button>
-                                        <button><i className="fa-solid fa-circle-xmark"></i></button>
-                                    </td>
-                                </tr>
+                                </tr>)}
                                 </tbody>
                             </table>
                         </div>

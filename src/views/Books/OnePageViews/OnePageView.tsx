@@ -3,8 +3,8 @@ import {Footer} from "../../../common/Footer/Footer";
 import "./OnePageView.css"
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {ErrorPage} from "../../ErrorPage/ErrorPage";
+import {apiGetOneBook, apiLikeBook} from "../../../api/api";
 
 interface itemBook {
     id:string;
@@ -15,8 +15,7 @@ interface itemBook {
     likeQuantity:number;
 }
 
-const imgPath = "http://localhost:3001/uploads/"
-
+const domainImg = 'http://localhost:35001/uploads'
 export const OnePageView = () => {
 
     const [dataBook, setDataBook] = useState<itemBook | null>(null)
@@ -25,7 +24,7 @@ export const OnePageView = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/books/${id}`, {withCredentials: true}).then((res) => {
+        apiGetOneBook(id).then((res) => {
             setDataBook(res.data)
         })
         setLoading(false)
@@ -40,14 +39,11 @@ export const OnePageView = () => {
     const addLike = async() => {
 
         try {
-
-           await axios.get(`http://localhost:3001/books/like/${id}`, {withCredentials: true})
+           await apiLikeBook(id)
             setLoading(true)
         } catch (e) {
             console.log(e)
         }
-
-
     }
 
 
@@ -58,7 +54,7 @@ return (
             <div className="book-item">
                 <div className="book-item__info-img">
                     <div className="book-item_img">
-                        <img src={`${imgPath}${dataBook.img}`} alt={dataBook.name}/>
+                        <img src={`${domainImg}/${dataBook.img}`} alt={dataBook.name}/>
                     </div>
                     <div className="book-item__rates">
                         <p><i className="fa-brands fa-gratipay"></i>Punktów: {dataBook.likeQuantity}</p>

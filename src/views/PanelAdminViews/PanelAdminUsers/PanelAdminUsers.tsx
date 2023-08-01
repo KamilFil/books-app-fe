@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import axios from "axios";
+import {apiGetUser} from "../../../api/api";
 
 interface UsersType {
     id?: string;
@@ -17,7 +17,7 @@ export const PanelAdminUsers = () => {
 
 
     useEffect(()=> {
-       axios.get('http://localhost:3001/users/', {withCredentials: true}).then((res) => {
+       apiGetUser().then((res) => {
            setData(res.data)
        })
     },[])

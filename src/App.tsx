@@ -25,7 +25,7 @@ export const App = () => {
             <Route path="/books/:id" element={<OnePageView/>}/>
              <Route path="/login" element={<LoginPageView/>}/>
              <Route path="/add-book" element={<AddedBooksView/>}/>
-           <Route element={<PrivateRoute/>}>
+             <Route element={<PrivateRoute/>}>
                <Route path="/panel-admin" element={<PanelAdminViews/>}/>
                <Route path="/panel-admin/books" element={<PanelAdminBooks/>}/>
                <Route path="/panel-admin/users" element={<PanelAdminUsers/>}/>

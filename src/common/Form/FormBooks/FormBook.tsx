@@ -2,7 +2,7 @@ import {useFormik} from "formik";
 import "./FormBook.css"
 import {Link} from "react-router-dom";
 import {useState} from "react";
-import axios from "axios";
+import {apiCreateBook, apiSendFile} from "../../../api/api";
 
 interface Books {
     name:string,
@@ -26,15 +26,14 @@ export const FormBook = () => {
         try {
             const data = new FormData()
             data.append('file', formik.values.file)
-             await axios.post("http://localhost:3001/send-file/upload/",data , { headers: {
-                    'Content-Type': 'multipart/form-data',
-                },withCredentials: true}).then((res) => res.data)
-            await axios.post("http://localhost:3001/books/", {
+
+             await apiSendFile(data).then((res) => res.data)
+            await apiCreateBook({
                 name:formik.values.name,
                 img:formik.values.img,
                 description:formik.values.description,
                 author:formik.values.author,
-            }, {withCredentials: true}).then((res) => res.data)
+            }).then((res) => res.data)
 
             setSend("Wysyłanie powiodło się")
 

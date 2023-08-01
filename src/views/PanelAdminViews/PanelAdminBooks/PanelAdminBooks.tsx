@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import "./PanelAdminBooks.css"
 import { useEffect, useState} from "react";
-import axios from "axios";
+import {apiActiveBooks, apiGetAllBook} from "../../../api/api";
 
 interface itemBook {
     id:string;
@@ -18,7 +18,7 @@ export const PanelAdminBooks = () => {
     const [load, setLoad] = useState(false)
 
     useEffect(()=> {
-        axios.get('http://localhost:3001/books/', {withCredentials: true}).then((res) => {
+        apiGetAllBook().then((res) => {
             setData(res.data)
         })
     },[load])
@@ -28,7 +28,7 @@ export const PanelAdminBooks = () => {
 
     const sendAccecptBooks = async (id: string) => {
         setLoad(true)
-       await axios.get(`http://localhost:3001/books/active/${id}`, {withCredentials: true}).then((res) => {
+       await apiActiveBooks(id).then((res) => {
           return res.data
        })
         setLoad(false)
@@ -99,9 +99,7 @@ export const PanelAdminBooks = () => {
                                                 <td>{el.active ? "Tak" : "Nie"}</td>
                                                 <td> <Link to={`/books/${el.id}`}><i className="fa-solid fa-eye"></i></Link>
                                                     <button id={`data-id=${el.id}`}><i className="fa-solid fa-file-pen"></i></button>
-                                                    {el.active ?  <button type="submit" onClick={(e) => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-check"></i></button> : <button type="submit" onClick={(e) => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-xmark"></i></button>}
-
-
+                                                    {el.active ?  <button type="submit" onClick={() => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-check"></i></button> : <button type="submit" onClick={(e) => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-xmark"></i></button>}
                                                 </td>
                                             </tr>
                                         )}

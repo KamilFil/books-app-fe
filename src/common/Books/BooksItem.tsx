@@ -12,16 +12,13 @@ interface itemBook {
 interface Props {
     data: itemBook[] | null;
 }
-const imgPath = "http://localhost:3001/uploads/"
+
+const domainImg = 'http://localhost:35001/uploads'
 export const BooksItem = (props: Props) => {
-
-
-
-
     return (
     <>
         { props.data === null ? <p>Ładowanie elementów</p> : props.data.slice(0,4).map(el => <div className="books-item">
-        <img src={`${imgPath}${el.img}`} alt={el.name}/>
+        <img src={`${domainImg}/${el.img}`} alt={el.name}/>
          <div className="books-item_info">
              <Link className="books-item_title" to={`books/${el.id}`}>{el.name}</Link>
              <p className="books-item_desc">{el.description}</p>

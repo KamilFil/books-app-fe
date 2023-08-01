@@ -1,5 +1,5 @@
-import axios from "axios";
 import {useEffect, useState} from "react";
+import {apiAuthUser, apiLoginUser} from "../api/api";
 
 interface FormLoginValues {
     username: string,
@@ -17,7 +17,7 @@ export const UseAuthProvider = (): UseAuthProviderType => {
     useEffect(() => {
         (async () => {
             try {
-                const res = await axios.get("http://localhost:3001/auth/user/", {withCredentials:true})
+                const res = await apiAuthUser()
                 const fetchUser = res.data;
                 const authUser = {...fetchUser, auth:true}
                 if(authUser){
@@ -31,8 +31,7 @@ export const UseAuthProvider = (): UseAuthProviderType => {
 
     const login = async  (data:FormLoginValues): Promise<string | void | boolean> => {
         try {
-            const response = await axios.post('http://localhost:3001/auth/login/',data, {
-                withCredentials: true}).then((res) => res.data)
+            const response = await apiLoginUser(data).then((res) => res.data)
             if(response.status === 404){
                 setUser(false)
                 return false

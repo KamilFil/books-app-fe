@@ -27,7 +27,4 @@ export const BooksItem = (props: Props) => {
     )}
     </>
     )
-
-
-
 }

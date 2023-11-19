@@ -29,7 +29,7 @@ export const Menu = () => {
     return (  <nav className="main-menu">
             <div className="container-menu">
                 <div className="menu-item">
-                    <img src={`./img/${img.img}`} title={img.title}/>
+                    <img src={`/img/${img.img}`} title={img.title}/>
                 </div>
                 <div>
                     <ul>

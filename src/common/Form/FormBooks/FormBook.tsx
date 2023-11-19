@@ -1,27 +1,40 @@
 import {useFormik} from "formik";
 import "./FormBook.css"
 import {Link} from "react-router-dom";
-import {useState} from "react";
-import {apiCreateBook, apiSendFile} from "../../../api/api";
+import {useEffect, useState} from "react";
+import {apiCreateBook, apiGetCategory, apiSendFile} from "../../../api/api";
 
 interface Books {
     name:string,
     img: string,
     description: string,
     author:string,
+    category:string
 }
 
+interface Category {
+    id:string
+    name:string,
+   description:string
+}
 interface BooksErrors {
     name?:string,
     img?: [],
     description?: string,
     author?:string,
+
 }
 
 export const FormBook = () => {
 
     const [send, setSend] = useState<string | null>(null)
+    const [category, setCategory] = useState<Category[] | null>(null)
 
+    useEffect(() => {
+        apiGetCategory().then((res) => {
+            setCategory(res.data)
+        })
+    },[setCategory])
     const sendBook = async() => {
         try {
             const data = new FormData()
@@ -33,6 +46,7 @@ export const FormBook = () => {
                 img:formik.values.img,
                 description:formik.values.description,
                 author:formik.values.author,
+                categories:formik.values.category
             }).then((res) => res.data)
 
             setSend("Wysyłanie powiodło się")
@@ -66,12 +80,13 @@ export const FormBook = () => {
             img:"",
             description:"",
             author:"",
+            category:'',
             file:""
         },
         validate,
         onSubmit:sendBook,
     })
-
+console.log(formik.values.category)
 
     return (
         <div className="add-book_section">
@@ -112,7 +127,16 @@ export const FormBook = () => {
                         <div className="input-item">
                             <input id="author" name="author" onChange={formik.handleChange} value={formik.values.author} placeholder="Nazwa autora"/></div>
                              {formik.errors.author ? <p className="error-info">{formik.errors.author}</p> : null}
+                        <div className='input-item'>
+                            <select id='category' name='category' onChange={formik.handleChange} value={formik.values.category}>
+                                {category?.map(el => (
+                                    <option id={el.id} value={el.id}>{el.name}</option>
+                                ) )}
+
+                            </select>
+                        </div>
                         <button className="btn" type="submit">Wyślij</button>
+
                     </form>
                     {send ? <p>{send}</p> : null}
                 </div>

@@ -19,7 +19,9 @@ export const apiGetAllBookActive = () => API.get('/books/active')
 export const apiActiveBooks = (id:string | undefined ) => API.get(`books/active/${id}`)
 export const apiGetOneBook = (id: string | undefined) => API.get(`/books/${id}`)
 export const apiLikeBook = (id: string | undefined) => API.get(`/books/like/${id}`)
+export const apiGetForCategoryName = (catName:string) => API.get(`/books/category/${catName}`)
 
+export const apiGetCategory = () => API.get('/category-books')
 //FilePath
 export const apiSendFile = (data: object) => API.post('/send-file/upload/', data, {headers: {
         'Content-Type': 'multipart/form-data',

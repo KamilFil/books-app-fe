@@ -19,10 +19,10 @@ export const HomePageViews = () => {
 
 
     return (
-        <>   <Menu></Menu>
+        <>
+            <Menu/>
             <header>
                 <div className="container">
-
                     <div className="head-info">
                         <h1>Świat Książek</h1>
                         <p>Zbiór książek tworzony przez użytkowników</p>
@@ -45,10 +45,10 @@ export const HomePageViews = () => {
                             <Link to="./books/1" className="btn small">Zobacz</Link>
                          </div>
                     </div>
-
                 </div>
             </header>
-            <BooksSection dataBooks={data}/>
+            <BooksSection catName={"test"}/>
+            <BooksSection catName={"Raz"}/>
             <Footer/>
             </>
     )

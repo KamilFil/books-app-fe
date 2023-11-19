@@ -24,3 +24,13 @@ flex-basis: 21%;
     margin: 30px 0;
 }
 
+@media (max-width: 480px) {
+    .category-section {
+        width: 100%;
+    }
+    .category-section_item {
+        padding: 10px 0;
+        flex-direction: column;
+        width: 80%;
+    }
+}

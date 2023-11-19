@@ -67,7 +67,7 @@ return (
                 </div>
                 <div className="book-item__info">
                     <h1>{dataBook.name}</h1>
-                    <p className="book-item-author">{dataBook.author}</p>
+                    <p className="book-item-author">Autor: {dataBook.author}</p>
                     <p>{dataBook.description}</p>
                     <div className="btn">
                         <Link className="btn-back" to={"/"}>Wróc</Link>

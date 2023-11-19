@@ -12,11 +12,12 @@ export const BooksSection = (props: Props) => {
 
     const [data, setData] = useState<[] | null>(null)
 
+
     useEffect(() => {
         apiGetForCategoryName(props.catName).then((res) => {
             setData(res.data)
         })
-    }
+    },[setData]
 )
 
     if(!data) {

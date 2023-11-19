@@ -21,7 +21,7 @@ const img: BrandSite = {
 
 const menu: MenuType[] = [
     {name: "Strona główna", link: "/", title:'Strona główna'},
-    {name: "Dodaj książkę", link: "/add-book", title:'Dodawanie ksiązki'}
+    {name: "Dodaj książkę", link: "/dodaj-ksiazke", title:'Dodawanie ksiązki'}
 ]
 
 

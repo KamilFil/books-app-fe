@@ -49,10 +49,10 @@ export const FormBook = () => {
                 categories:formik.values.category
             }).then((res) => res.data)
 
-            setSend("Wysyłanie powiodło się")
+            setSend("Książak dodana, czeka na akceptaje admina")
 
         } catch(e) {
-            setSend("Wysyłanie nie powiodło się")
+            setSend("Wysyłanie nie udalo się sprawdź poprawność danych")
         }
 
     }
@@ -60,12 +60,12 @@ export const FormBook = () => {
     const validate = (values:Books) =>  {
         const errors:BooksErrors = {}
         if(values.description.length < 100) {
-            errors.description = "Opis musi mieć minimum 200znaków"
+            errors.description = "Opis musi mieć minimum 200 znaków"
         }
         if(!values.author.length) {
             errors.author = "Wprowadz nazwę autora"
         }
-        if(values.name.length < 10 || values.name.length >= 160) {
+        if(values.name.length > 20 && values.name.length <= 160) {
             errors.name = "Tytuł książki musi mieć do 20 - 160 znaków"
         }
 

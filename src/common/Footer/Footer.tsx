@@ -35,16 +35,15 @@ const footerMenu: FooterMenu = {
     // title:'Books.pl',
     menu:[
         { title: "Nawigacja",
-            link:[
-                {name: "Strona główna", link: "/"},
+            link:[ {name: "Dodaj książke", link: "/dodaj-ksiazke"},
                 {name: "Zaloguj", link: "/login"}
             ]
         },
-        { title: "Top książki",
+        { title: "Kategorie książek",
             link:[
-                {name: "Książka 1", link: "/id1"},
-                {name: "Książka 2", link: "/id2"},
-                {name: "Książka 3", link: "/id3"}
+                {name: "IT", link: "/it"},
+                {name: "SEO", link: "/seo"},
+                {name: "UX", link: "/ux"}
             ]
         },
 

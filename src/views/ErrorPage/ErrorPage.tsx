@@ -8,7 +8,7 @@ export const ErrorPage = () => {
             <Menu/>
             <div className="error-page_section">
             <h1>Błąd 404</h1>
-            <p>Opss.. niestety podana strona nie istnieje</p>
+            <p>Opss..  podana strona nie istnieje</p>
             <Link className="btn-back" to="/">Wróc</Link>
             </div>
             <Footer/>

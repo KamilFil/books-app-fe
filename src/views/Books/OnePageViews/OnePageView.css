@@ -44,6 +44,20 @@
     font-size: 16px;
 }
 
+.book-item-author {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-info_category-futured {
+    color: white;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 20px;
+    text-align: center;
+    background: darkcyan;
+}
+
 .book-item__rate {
     margin-right: 10px;
 }
@@ -81,6 +95,19 @@ font-size: 20px;
 
 
 @media (max-width: 480px) {
+
+    .book-item {
+        padding: 10px 40px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+
+    .book-item > div {
+        margin: 40px 0;
+    }
+
     .book-item_img {
         display: flex;
         justify-content: center;
@@ -91,15 +118,8 @@ font-size: 20px;
         width: 90%;
     }
 
-    .book-item {
-        padding: 10px 20px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     .book-item__info {
-        width: 100%;
+        flex-basis: 100%;
     }
 
     .book-item_opinions {

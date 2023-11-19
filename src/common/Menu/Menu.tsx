@@ -29,12 +29,12 @@ export const Menu = () => {
     return (  <nav className="main-menu">
             <div className="container-menu">
                 <div className="menu-item">
-                    <img src={`/img/${img.img}`} title={img.title}/>
+                    <img src={`/img/${img.img}`} title={img.title} alt={img.title}/>
                 </div>
                 <div>
                     <ul>
 
-                            {menu.map(item =>  <li> <Link to={item.link} title={item.title}>{item.name}</Link></li> )}
+                            {menu.map(item =>  <li key={item.name}> <Link to={item.link} title={item.title}>{item.name}</Link></li> )}
 
                     </ul>
                 </div>

@@ -60,9 +60,9 @@ export const Footer = () => {
                     <p>{dataBrand.desc}</p>
                 </div>
                 {footerMenu.menu.map(el =>
-                    <div className="footer-item">
+                    <div className="footer-item" key={el.title}>
                         <p>{el.title}</p>
-                        {el.link.map(el => <li><Link to={el.link}>{el.name}</Link></li>)}
+                        {el.link.map(el => <li key={el.name}><Link to={el.link}>{el.name}</Link></li>)}
                     </div>
                 )}
             </div>

@@ -3,22 +3,10 @@ import {BooksItem} from "./BooksItem";
 import "./BooksSection.css"
 import {apiGetForCategoryName} from "../../api/api";
 
-interface itemBook {
-    id:string
-    name:string,
-    img:string,
-    description:string
-    text?:string
-}
 
 interface Props {
     catName: string
 }
-
-const category = ["it", "organizacja", "grafika"]
-
-
-
 
 export const BooksSection = (props: Props) => {
 

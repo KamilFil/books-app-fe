@@ -6,7 +6,7 @@ export const PrivateRoute = () => {
     const auth = UseAuthProvider()
 
         if(auth.auth === null) {
-            return <p>czekamy</p>
+            return <p>Weryfikacja użytkownika</p>
         }  else {
           return auth.auth ? <Outlet/> : <Navigate to={"/login"}></Navigate>
         }

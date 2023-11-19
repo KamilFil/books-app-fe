@@ -52,7 +52,6 @@ export const FormBook = () => {
             setSend("Wysyłanie powiodło się")
 
         } catch(e) {
-            console.log(e)
             setSend("Wysyłanie nie powiodło się")
         }
 
@@ -61,7 +60,6 @@ export const FormBook = () => {
     const validate = (values:Books) =>  {
         const errors:BooksErrors = {}
         if(values.description.length < 100) {
-            console.log(values.description)
             errors.description = "Opis musi mieć minimum 200znaków"
         }
         if(!values.author.length) {
@@ -86,7 +84,6 @@ export const FormBook = () => {
         validate,
         onSubmit:sendBook,
     })
-console.log(formik.values.category)
 
     return (
         <div className="add-book_section">
@@ -129,6 +126,7 @@ console.log(formik.values.category)
                              {formik.errors.author ? <p className="error-info">{formik.errors.author}</p> : null}
                         <div className='input-item'>
                             <select id='category' name='category' onChange={formik.handleChange} value={formik.values.category}>
+                                <option disabled></option>
                                 {category?.map(el => (
                                     <option id={el.id} value={el.id}>{el.name}</option>
                                 ) )}

@@ -15,7 +15,6 @@ export const apiGetUser = () => API.get(`/users/`)
 //BookPath
 export const apiCreateBook = (data: object) => API.post('/books/', data)
 export const apiGetAllBook = () => API.get(`/books/`)
-export const apiGetAllBookActive = () => API.get('/books/active')
 export const apiActiveBooks = (id:string | undefined ) => API.get(`books/active/${id}`)
 export const apiGetOneBook = (id: string | undefined) => API.get(`/books/${id}`)
 export const apiLikeBook = (id: string | undefined) => API.get(`/books/like/${id}`)

@@ -4,19 +4,22 @@ import { Link } from 'react-router-dom';
 import {Footer} from "../../common/Footer/Footer";
 import React, {useEffect, useState} from "react";
 import {BooksSection} from "../../common/Books/BooksSection";
-import {apiGetAllBookActive} from "../../api/api";
+import {apiGetCategory} from "../../api/api";
+
+interface Category {
+    id:string
+    name:string,
+    description:string
+}
 
 export const HomePageViews = () => {
-
-    const [data, setData] = useState<[] | null>(null)
-
+    const [category, setCategory] = useState<Category[] | null>(null)
 
     useEffect(() => {
-        apiGetAllBookActive().then((res) => {
-            setData(res.data)
+        apiGetCategory().then((res) => {
+            setCategory(res.data)
         })
-    },[])
-
+    },[setCategory])
 
     return (
         <>
@@ -47,8 +50,8 @@ export const HomePageViews = () => {
                     </div>
                 </div>
             </header>
-            <BooksSection catName={"test"}/>
-            <BooksSection catName={"Raz"}/>
+            {category?.map(el => (<BooksSection catName={el.name} key={el.name}/>)
+            )}
             <Footer/>
             </>
     )

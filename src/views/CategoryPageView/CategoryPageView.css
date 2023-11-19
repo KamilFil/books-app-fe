@@ -1,0 +1,26 @@
+.category-section {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+    min-height: 70%;
+}
+
+.category-section h1{
+
+}
+
+.category-section_item {
+    display: flex;
+    margin: 0px auto;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.category-section_item .books-item{
+flex-basis: 21%;
+    margin: 30px 0;
+}
+

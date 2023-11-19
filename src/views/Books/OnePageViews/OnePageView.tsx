@@ -75,7 +75,7 @@ return (
                 </div>
             </div>
             <div>
-                <p className="book-info_category-futured">Inne ksiązki z kategori {dataBook.categories.name}</p>
+                <p className="book-info_category-futured">Inne ksiązki z kategorii {dataBook.categories.name}</p>
                 <BooksSection catName={dataBook.categories.name} />
             </div>
         </div>

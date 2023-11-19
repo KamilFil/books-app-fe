@@ -23,12 +23,14 @@ export const BooksSection = (props: Props) => {
         return null
     }
 
+
+
     return (
         <>
                 <section className="books">
                     <h2 className="books-title">{props.catName}</h2>
                     <div className="books-section">
-                    <BooksItem data={data}></BooksItem>
+                    <BooksItem data={data.slice(0,4)}></BooksItem>
                     </div>
                 </section>
         </>

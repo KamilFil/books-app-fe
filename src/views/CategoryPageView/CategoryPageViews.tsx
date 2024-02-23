@@ -42,7 +42,7 @@ export const CategoryPageViews = () => {
         <Menu></Menu>
             <div className='category-section'>
             <h1>Kategoria {categoryName?.toUpperCase()} {pageNumber ? `- strona ${pageNumber}` : null}</h1>
-                <div className='category-section_item'>
+                <div className='category-section_item active'>
                     <BooksItem data={data}/>
                 </div>
             </div>

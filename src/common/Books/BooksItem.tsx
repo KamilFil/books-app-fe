@@ -13,7 +13,7 @@ interface Props {
     data: itemBook[] | null;
 }
 
-const domainImg = 'http://localhost:35001/uploads'
+const domainImg = 'http://localhost:3001/uploads'
 export const BooksItem = (props: Props) => {
     return (
     <>

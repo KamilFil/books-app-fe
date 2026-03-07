@@ -36,7 +36,6 @@ export const PanelAdminBooks = () => {
         return <p>Ładowanie</p>
     }
 
-
     return (
                     <div className="list-info">
                                 <div className="book-list">
@@ -56,8 +55,24 @@ export const PanelAdminBooks = () => {
                                                 <td>{el.name}</td>
                                                 <td>{el.likeQuantity}</td>
                                                 <td>{el.active ? "Tak" : "Nie"}</td>
-                                                <td> <Link to={`/books/${el.id}`}><i className="fa-solid fa-eye"></i></Link>
-                                                    {el.active ?  <button type="submit" onClick={() => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-check"></i></button> : <button type="submit" onClick={(e) => sendAccecptBooks(el.id)}><i className="fa-solid fa-circle-xmark"></i></button>}
+                                                <td>
+                                                    <Link to={`/panel-admin/books/${el.id}`}>
+                                                        <i className="fa-solid fa-eye"></i>
+                                                    </Link>
+
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => sendAccecptBooks(el.id)}
+                                                        aria-label={el.active ? 'Aktywuj książkę' : 'Dezaktywuj książkę'}
+                                                    >
+                                                        <i
+                                                            className={
+                                                                !el.active
+                                                                    ? 'fa-solid fa-circle-check'
+                                                                    : 'fa-solid fa-circle-xmark'
+                                                            }
+                                                        />
+                                                    </button>
                                                 </td>
                                             </tr>
                                         )}

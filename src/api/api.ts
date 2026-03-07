@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 
-const API = axios.create({baseURL: 'http://localhost:35001/', withCredentials: true})
+const API = axios.create({baseURL: 'http://localhost:3001/', withCredentials: true})
 
 
 //AuthPath
@@ -17,6 +17,7 @@ export const apiCreateBook = (data: object) => API.post('/books/', data)
 export const apiGetAllBook = () => API.get(`/books/`)
 export const apiActiveBooks = (id:string | undefined ) => API.get(`books/active/${id}`)
 export const apiGetOneBook = (id: string | undefined) => API.get(`/books/${id}`)
+export const apiGetOneBookForAdmin = (id: string | undefined) => API.get(`/books/admin/${id}`)
 export const apiLikeBook = (id: string | undefined) => API.get(`/books/like/${id}`)
 export const apiGetForCategoryName = (catName:string | undefined) => API.get(`/books/category/${catName}`)
 

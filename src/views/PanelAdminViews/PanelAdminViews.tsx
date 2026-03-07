@@ -29,10 +29,7 @@ export const PanelAdminViews = () => {
                             </div>
                         </div>
                     </div>
-
                         <PanelAdminBooks/>
-
-
                     <div className="footer-dash">
                     </div>
                 </div>

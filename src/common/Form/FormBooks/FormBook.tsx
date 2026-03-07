@@ -9,7 +9,8 @@ interface Books {
     img: string,
     description: string,
     author:string,
-    category:string
+    categories: string,
+    file: File | null
 }
 
 interface Category {
@@ -35,24 +36,27 @@ export const FormBook = () => {
             setCategory(res.data)
         })
     },[setCategory])
-    const sendBook = async() => {
+    const sendBook = async () => {
         try {
-            const data = new FormData()
-            data.append('file', formik.values.file)
+            if(!formik.values.file) {
+                setSend('Wybierz plik z książką');
+                return;
+            }
+            const data = new FormData();
+            data.append('file', formik.values.file);
 
-             await apiSendFile(data).then((res) => res.data)
+            await apiSendFile(data).then((res) => res.data)
             await apiCreateBook({
                 name:formik.values.name,
                 img:formik.values.img,
                 description:formik.values.description,
                 author:formik.values.author,
-                categories:formik.values.category
-            }).then((res) => res.data)
+                categories:formik.values.categories
+            });
 
-            setSend("Książak dodana, czeka na akceptaje admina")
-
-        } catch(e) {
-            setSend("Wysyłanie nie udalo się sprawdź poprawność danych")
+            setSend('Książka dodana, czeka na akceptację admina');
+        } catch (e) {
+            setSend('Wysyłanie nie udało się, sprawdź poprawność danych');
         }
 
     }
@@ -73,17 +77,18 @@ export const FormBook = () => {
     }
 
 
-    const formik = useFormik({initialValues:{
-            name:"",
-            img:"",
-            description:"",
-            author:"",
-            category:'',
-            file:""
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            img: "",
+            description: "",
+            author: "",
+            categories: "",
+            file: null as File | null
         },
         validate,
-        onSubmit:sendBook,
-    })
+        onSubmit: sendBook,
+    });
 
     return (
         <div className="add-book_section">
@@ -125,12 +130,11 @@ export const FormBook = () => {
                             <input id="author" name="author" onChange={formik.handleChange} value={formik.values.author} placeholder="Nazwa autora"/></div>
                              {formik.errors.author ? <p className="error-info">{formik.errors.author}</p> : null}
                         <div className='input-item'>
-                            <select id='category' name='category' onChange={formik.handleChange} value={formik.values.category}>
+                            <select id='categories' name='categories' onChange={formik.handleChange} value={formik.values.categories}>
                                 <option disabled></option>
                                 {category?.map(el => (
                                     <option id={el.id} value={el.id}>{el.name}</option>
                                 ) )}
-
                             </select>
                         </div>
                         <button className="btn" type="submit">Wyślij</button>

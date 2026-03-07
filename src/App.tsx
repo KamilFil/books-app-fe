@@ -11,6 +11,7 @@ import {PanelAdminBooks} from "./views/PanelAdminViews/PanelAdminBooks/PanelAdmi
 import { AuthProvider } from './utils/AuthProvider';
 import {PrivateRoute} from "./utils/PrivetRoute";
 import {CategoryPageViews} from "./views/CategoryPageView/CategoryPageViews";
+import {PanelAdminOneBook} from "./views/PanelAdminViews/PanelAdminOneBook/PanelAdminOneBook";
 
 
 
@@ -28,8 +29,9 @@ export const App = () => {
             <Route path="/:categoryName" element={<CategoryPageViews/>}/>
             <Route path="/:categoryName/:pageNumber" element={<CategoryPageViews/>}/>
              <Route element={<PrivateRoute/>}>
-               <Route path="/panel-admin" element={<PanelAdminViews/>}/>
-               <Route path="/panel-admin/books" element={<PanelAdminBooks/>}/>
+                 <Route path="/panel-admin" element={<PanelAdminViews/>}/>
+                 <Route path="/panel-admin/books/:id" element={<PanelAdminOneBook/>}/>
+                 <Route path="/panel-admin/books" element={<PanelAdminBooks/>}/>
            </Route>
             <Route path="*" element={<ErrorPage/>}/>
         </Routes>

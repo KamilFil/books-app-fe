@@ -15,17 +15,17 @@ interface FormLoginValues {
 
 interface FormRegisterValues {
     email: string,
-    pass: string,
+    password: string,
     passRepeat:string,
 }
 
 interface ErrorsLoginValues {
     email?: string,
-    pass?: string,
+    password?: string,
 }
 interface ErrorsRegisterValues {
     email?: string,
-    pass?: string,
+    password?: string,
     passRepeat?:string,
 }
 
@@ -37,18 +37,18 @@ const RegisterForm = () => {
         } else if(values.email.indexOf('@') === -1) {
             errors.email = "Email musi zawierać @";
         }
-        if(values.pass.length < 6) {
-            errors.pass = "Podaj hasło"
+        if(values.password.length < 6) {
+            errors.password = "Podaj hasło"
         }
 
-        if(values.passRepeat !== values.pass) {
+        if(values.passRepeat !== values.password) {
             errors.passRepeat = "Hasła nie są takie same"
         }
 
         return errors
     }
 
-    const formik = useFormik({initialValues:{email:"", pass:"", passRepeat:""},
+    const formik = useFormik({initialValues:{email:"", password:"", passRepeat:""},
         validate,
         onSubmit: (values:FormRegisterValues) => {alert(JSON.stringify(values,null,2))}})
 
@@ -58,15 +58,15 @@ const RegisterForm = () => {
                 <p className="login-panel-info_title">Rejestracja</p>
                 <form className="form-login" onSubmit={formik.handleSubmit}>
                     <div className="input-item">
-                        <input className={formik.errors.email ? "error" : ""} id="email" name='username' type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Wpisz email"/>
+                        <input className={formik.errors.email ? "error" : ""} id="email" name='email' type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Wpisz email"/>
                         {formik.errors.email ? <p className="error-info">{formik.errors.email}</p> : null}
                     </div>
                     <div className="input-item">
-                        <input className={formik.errors.pass ? "error" : ""} id="pass" name="password" type="passwords" onChange={formik.handleChange} value={formik.values.pass} placeholder="Wpisz hasło"/>
-                        {formik.errors.pass ? <p className="error-info">{formik.errors.pass}</p> : null}
+                        <input className={formik.errors.password ? "error" : ""} id="password" name="password" type="password" onChange={formik.handleChange} value={formik.values.password} placeholder="Wpisz hasło"/>
+                        {formik.errors.password ? <p className="error-info">{formik.errors.password}</p> : null}
                     </div>
                     <div className="input-item">
-                        <input className={formik.errors.passRepeat ? "error" : ""} id="passRepeat" name="passRepeat" type="passwords" onChange={formik.handleChange} value={formik.values.passRepeat} placeholder="Wpisz hasło ponownie"/>
+                        <input className={formik.errors.passRepeat ? "error" : ""} id="passRepeat" name="passRepeat" type="password" onChange={formik.handleChange} value={formik.values.passRepeat} placeholder="Wpisz hasło ponownie"/>
                         {formik.errors.passRepeat ? <p className="error-info">{formik.errors.passRepeat}</p> : null}
                     </div>
                     <button className="btn sing-up" type="submit">Zarejestruj się</button>
@@ -87,7 +87,7 @@ const FormLogin = () => {
             errors.email = "Email musi zawierać @";
         }
         if(values.password.length < 6) {
-            errors.pass = "Podaj hasło"
+            errors.password = "Podaj hasło"
         }
         return errors
     }
@@ -116,7 +116,7 @@ const FormLogin = () => {
                         {formik.errors.username ? <p className="error-info">{formik.errors.username}</p> : null}
                     </div>
                     <div className="input-item">
-                        <input className={formik.errors.password ? "error" : ""} id="pass" name="password" type="passwords" onChange={formik.handleChange} value={formik.values.password} placeholder="Wpisz hasło"/>
+                        <input className={formik.errors.password ? "error" : ""} id="pass" name="password" type="password" onChange={formik.handleChange} value={formik.values.password} placeholder="Wpisz hasło"/>
                         {formik.errors.password ? <p className="error-info">{formik.errors.password}</p> : null}
                     </div>
                     <button className="btn sing-up" type="submit">Zaloguj się</button>
